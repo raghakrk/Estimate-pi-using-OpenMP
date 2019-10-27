@@ -1,7 +1,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <time.h>
-
+#include<iostream>
+using namespace std;
 #define		num_of_points	   40000000
 typedef struct{
 	double x;  
@@ -23,7 +24,6 @@ int main(void){
 	
 	if( clock_gettime(CLOCK_REALTIME, &start) == -1) { perror("clock gettime");}
 	
-	
 	for(i=0; i<num_of_points; i++){
 		if((data_point[i].x-0.5)*(data_point[i].x-0.5)+(data_point[i].y-0.5)*(data_point[i].y-0.5)<=0.25){
 			num_of_points_in_circle++;
@@ -34,5 +34,5 @@ int main(void){
 	time = (stop.tv_sec - start.tv_sec)+ (double)(stop.tv_nsec - start.tv_nsec)/1e9;
 		
 	pi =4*(double)num_of_points_in_circle/(double)no_of_points;
-	printf("Estimated pi is %f, execution time = %f sec\n",  pi, time);		
+	cout<<"Estimated pi is "<<pi<<" execution time "= <<time<<" sec"<<endl;		
 }	
