@@ -1,1 +1,1 @@
-# OPENMP-examples
+# Estimate pi using OpenMP
