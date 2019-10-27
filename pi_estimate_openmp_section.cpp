@@ -36,7 +36,6 @@ int main(void){
 	int th_id;
 	if( clock_gettime(CLOCK_REALTIME, &start) == -1) { perror("clock gettime");}
 
-	//**********Use OpenMP to parallize this loop***************
 	#pragma omp parallel private(th_id)
 	{
 		#pragma omp sections private(i) reduction (+:num_of_points_in_circle)
@@ -64,7 +63,7 @@ int main(void){
 		}
 
 	}
-	//******************************
+
 	if( clock_gettime( CLOCK_REALTIME, &stop) == -1 ) { perror("clock gettime");}
 	time = (stop.tv_sec - start.tv_sec)+ (double)(stop.tv_nsec - start.tv_nsec)/1e9;
 
